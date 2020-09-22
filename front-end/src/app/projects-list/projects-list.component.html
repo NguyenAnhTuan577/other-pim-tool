@@ -1,0 +1,125 @@
+<!-- <h6>Projects List</h6>
+<hr>
+
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+    <div class="row">
+        <div class="col-5">
+            <input ngModel name="input" type="text" class="form-control"
+                placeholder="Project number, name, customer name">
+        </div>
+        <div class="col-2">
+            <select ngModel name="status" id="status" class="form-control">
+                <option value="">Project status</option>
+                <option value="new">New</option>
+                <option value="pla">Planned</option>
+                <option value="inp">In progress</option>
+                <option value="fin">Finished</option>
+            </select>
+        </div>
+        <div class="col-3">
+            <button type="submit" class="btn btn-primary">Search Project</button>
+        </div>
+        <div class="col-2">
+            <button (click)="onReset()">Reset Search</button>
+        </div>
+    </div>
+</form>
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th>Number</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Customer</th>
+        <th>Start Date</th>
+        <th>Delete</th>
+    </tr>
+    <tr *ngFor="let project of projects">
+        <td>
+            <input 
+            type="checkbox" 
+            (change)="checked($event, project)" 
+            [checked]="isChecked(project.id) !== -1"
+            [disabled]="project.status !== 'new'">
+        </td>
+        <td>
+            <a  [routerLink]="['/projects-list/edit', project.projectNumber]" [state]=project>
+                {{ project.projectNumber }}
+            </a>
+        </td>
+        <td>{{ project.name }}</td>
+        <td>{{ project.status }}</td>
+        <td>{{ project.customer }}</td>
+        <td>{{ project.startDate }}</td>
+        <td>
+            <fa-icon *ngIf="project.status === 'new'" [icon]="faTrashAlt" (click)="onDeleteProjects(project)"
+                style="color: #bd5d4a;"></fa-icon>
+        </td>
+    </tr>
+    <tr>
+        <td *ngIf="checkedNumber > 0">
+            <span>{{checkedNumber}} item(s) selected</span>
+            <span>delete selected item(s) <fa-icon [icon]="faTrashAlt" (click)="onDeleteProjects(deletedProjects)"
+                    style="color: #bd5d4a;"></fa-icon></span>
+        </td>
+    </tr>
+</table> -->
+
+<div id="projects_list">
+    <div class="title">Projects List</div>
+    <div id="search_form">
+        <form [formGroup]="searchForm">
+            <input formControlName="input" type="text" class="input" placeholder="Project number, name, customer name">
+            <select formControlName="status" class="input">
+                <option value="">Project status</option>
+                <option value="new">New</option>
+                <option value="pla">Planned</option>
+                <option value="inp">In progress</option>
+                <option value="fin">Finished</option>
+            </select>
+            <input class="submit" type="submit" value="Search Project" (click)="onSearch()">
+            <input class="reset" type="reset" value="Reset Search" (click)="onReset()">
+        </form>
+    </div>
+    <div id="result">
+        <table>
+            <tr>
+                <th></th>
+                <th class="center">Number</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Customer</th>
+                <th class="center">Start Date</th>
+                <th class="center">Delete</th>
+            </tr>
+            <tr *ngFor="let project of projects">
+                <td class="center">
+                    <input type="checkbox" (change)="checked($event, project)" [checked]="isChecked(project.id) !== -1"
+                        [disabled]="project.status !== 'new'">
+                </td>
+                <td class="center">
+                    <a (click)="onEdit(project)" id="edit">
+                        {{ project.projectNumber }}
+                    </a>
+                </td>
+                <td>{{ project.name }}</td>
+                <td>{{ project.status }}</td>
+                <td>{{ project.customer }}</td>
+                <td class="center">{{ project.startDate }}</td>
+                <td class="center">
+                    <fa-icon *ngIf="project.status === 'new'" [icon]="faTrashAlt" (click)="onDeleteProjects(project)"
+                        class="trash"></fa-icon>
+                </td>
+            </tr>
+        </table>
+        <div *ngIf="checkedNumber > 0" id="multi_deleted">
+            <div style="margin-left: 20px; color: #007bff;">{{checkedNumber}} item(s) selected</div>
+            <div style="margin-right: 50px; color: #bd5d4a;">
+                delete selected item(s)
+                <fa-icon [icon]="faTrashAlt" (click)="onDeleteProjects(deletedProjects)" class="trash">
+                </fa-icon>
+            </div>
+        </div>
+    </div>
+</div>

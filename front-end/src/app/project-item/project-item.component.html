@@ -1,0 +1,73 @@
+<div id="save">
+    <div class="title" *ngIf="isEdit; else new">Edit Project Information</div>
+    <ng-template #new>
+        <div class="title">New Project</div>
+    </ng-template>
+    <div>
+        <form [formGroup]="saveForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <label class="row_item required">Project Number</label>
+                <input id="number" formControlName="projectNumber" type="number" [readonly]="isEdit" [ngClass]= "{'readonly': isEdit}">
+                <div class="text_danger" *ngIf="saveForm.get('projectNumber').hasError('required')">
+                    Project Number is required
+                </div>
+            </div>
+            <div class="row">
+                <label class="row_item required">Project Name</label>
+                <input id="name" formControlName="name" type="text">
+                <div class="text_danger" *ngIf="saveForm.get('name').hasError('required')">
+                    Project Name is required
+                </div>
+            </div>
+            <div class="row">
+                <label class="row_item required">Project Customer</label>
+                <input id="customer" formControlName="customer" type="text">
+                <div class="text_danger" *ngIf="saveForm.get('customer').hasError('required')">
+                    Project Customer is required
+                </div>
+            </div>
+            <div class="row">
+                <label class="row_item required">Group</label>
+                <select id="group" formControlName="group">
+                    <option *ngFor="let g of groups" [ngValue]="g.groupLeader.visa">{{ g.groupLeader.visa }}</option>
+                </select>
+                <div class="text_danger" *ngIf="saveForm.get('group').hasError('required')">
+                    Group is required
+                </div>
+            </div>
+            <div class="row">
+                <label class="row_item required">Members</label>
+                <input id="members" formControlName="members" type="text">
+                <div class="text_danger" *ngIf="saveForm.get('members').hasError('required')">
+                    Members is required
+                </div>
+            </div>
+            <div class="row">
+                <label class="row_item required">Status</label>
+                <select id="status" formControlName="status">
+                    <option *ngFor="let s of statuses" [ngValue]="s[0]">{{ s[1] }}</option>
+                </select>
+                <div class="text_danger" *ngIf="saveForm.get('status').hasError('required')">
+                    Status is required
+                </div>
+            </div>
+            <div class="row">
+                <div class="date">
+                    <label class="required">Start date</label>
+                    <input id="start" formControlName="startDate" type="date">
+                    <div class="text_danger" *ngIf="saveForm.get('startDate').hasError('required')">
+                        Start date is required
+                    </div>
+                </div>
+                <div class="date">
+                    <label>End date</label>
+                    <input id="end" formControlName="endDate" type="date">
+                </div>
+            </div>
+            <div class="row" id="button">
+                <button id="cancel">Cancel</button>
+                <input id="save_button" type="submit" [value]="isEdit ? 'Update Project' : 'Create Project'">
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+/* div > img {
+    width: 50px;
+    height: 50px;
+}
+
+#title {
+    margin-left: 50px;
+    font-weight: 400;
+}
+
+div > span {
+    padding-top: 5px;
+}
+
+nav > div:nth-child(2) {
+    margin-right: 150px;
+}
+
+hr {
+    margin: 0px;
+} */
+
+#logo {
+    align-items: center;
+}
+
+#logo_name {
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 20pt;
+    color: #666666;
+}
+
+#nav {
+    margin-left: auto;
+    align-items: center;
+}
+
+#language a {
+    color: #007bff;
+}
+
+#language a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#help {
+    margin-right: 30px;
+}
+
+#language {
+    margin-right: 100px;
+}

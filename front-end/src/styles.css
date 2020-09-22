@@ -1,0 +1,106 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI' !important;
+    font-weight: 475;
+    font-size: 14pt;
+    color: #666;
+}
+
+.container {
+    width: 1170px;
+    margin: 0 auto;
+}
+
+.common_flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    color: #666;
+}
+
+.title {
+    font-size: 18pt;
+    padding: 30px 0 15px;
+    border-bottom: solid 1px #ccc;
+    margin-bottom: 20px;
+}
+
+.trash {
+    color: #bd5d4a;
+    cursor: pointer;
+}
+
+.active {
+    color: black !important;
+}
+
+#content {
+    width: calc(100% - 200px);
+}
+
+app-header{
+    border-bottom: solid 1px #ccc;
+    display: block;
+    padding: 10px 0;
+}
+
+app-menu {
+    width: 200px;
+    border-right: solid 1px #ccc;
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 100%;
+    }
+    #logo {
+        width: 100%;
+        justify-content: center;
+    }
+    #nav {
+        width: 100%;
+        justify-content: center;
+        margin: initial;
+    }
+    #menu {
+        width: 100%;
+    }
+    #content {
+        width: 100%;
+    }
+    app-menu {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+    }
+    form {
+        flex-wrap: wrap;
+    }
+    input.input {
+        width: 65% !important;
+    }
+    form select {
+        width: 30%;
+    }
+    form input:not(:first-child) {
+        width: 50%;
+    }
+    .input {
+        margin-bottom: 10px;
+    }
+    #result {
+        overflow: scroll;
+    }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

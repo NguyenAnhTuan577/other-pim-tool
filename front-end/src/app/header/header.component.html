@@ -1,0 +1,43 @@
+<!-- <nav class="navbar navbar-expand-lg bg-light">
+    <div class="navbar-brand mr-auto">
+        <img src="../../assets/images/logo_elca.png" alt="logo_elca">
+        <strong id="title">{{ 'header.title' | translate }}</strong>
+    </div>
+
+    <div class="navbar-nav">
+        <a class="nav-link" (click)="chooseLanguage('en')">EN</a>
+        <span> | </span>
+        <a class="nav-link" (click)="chooseLanguage('fr')">FR</a>
+    </div>
+
+    <div class="navbar-nav">
+        <a class="nav-link disabled" href="#">{{ 'header.help' | translate }}</a>
+        <a class="nav-link disabled" href="#">{{ 'header.logout' | translate }}</a>
+    </div>
+</nav>
+<hr> -->
+
+<div class="container common_flex">
+    <div id="logo" class="common_flex">
+        <div id="logo_image">
+            <img src="../../assets/images/logo_elca.png" alt="logo_elca">
+        </div>
+        <div id="logo_name">
+            {{ 'header.title' | translate }}
+        </div>
+    </div>
+    <div id="nav" class="common_flex">
+        <div id="language">
+            <a [ngClass]="{'active': languageStyle === 'en'}" (click)="chooseLanguage('en')">EN</a> | 
+            <a [ngClass]="{'active': languageStyle === 'fr'}" (click)="chooseLanguage('fr')">FR</a>
+        </div>
+        <div id="user" class="common_flex">
+            <div id="help">
+                <a href="#" class="disabled">{{ 'header.help' | translate }}</a>
+            </div>
+            <div id="logout">
+                <a href="#" class="disabled">{{ 'header.logout' | translate }}</a>
+            </div>
+        </div>
+    </div>
+</div>

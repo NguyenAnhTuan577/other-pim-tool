@@ -1,0 +1,15 @@
+{
+    "header": {
+        "title": "Project Information Management",
+        "help": "Help",
+        "logout": "Logout"
+    },
+
+    "menu": {
+        "projects-list": "Projects List",
+        "new": "New",
+        "project": "Project",
+        "customer": "Customer",
+        "supplier": "Supplier"
+    }
+}

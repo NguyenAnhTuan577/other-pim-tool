@@ -1,0 +1,15 @@
+{
+    "header": {
+        "title": "Gestion Des Informations De Projet",
+        "help": "Aidez-moi",
+        "logout": "Se déconnecter"
+    },
+
+    "menu": {
+        "projects-list": "Liste Des Projets",
+        "new": "Nouvellement",
+        "project": "Projet",
+        "customer": "Client",
+        "supplier": "Fournisseur"
+    }
+}

@@ -1,0 +1,28 @@
+<!-- <nav class="nav flex-column">
+    <div>
+        <a class="nav-link" routerLink="/projects-list/search" routerLinkActive="active"><span>{{ 'menu.projects-list' | translate }}</span></a>
+    </div>
+    <div>
+        <a class="nav-link" routerLink="/new" routerLinkActive="active"><span>{{ 'menu.new' | translate }}</span></a>
+        <div class="new-menu">
+            <a class="nav-link" routerLink="/new" routerLinkActive="active"><span>{{ 'menu.project' | translate }}</span> </a>
+            <a class="nav-link disabled" href="#"><span>{{ 'menu.customer' | translate }}</span></a>
+            <a class="nav-link disabled" href="#"><span>{{ 'menu.supplier' | translate }}</span></a>
+        </div>
+    </div>
+</nav> -->
+
+<div id="menu">
+    <ul>
+        <li><a (click)="onSearch()" [ngClass]="{'active': isOnSearch}">{{ 'menu.projects-list' | translate }}</a></li>
+        <li>
+            <a (click)="onNew()" [ngClass]="{'active': !isOnSearch}" class="no_disable">{{ 'menu.new' | translate }}</a>
+            <ul>
+                <li><a (click)="onNew()" [ngClass]="{'active': !isOnSearch}" class="no_disable">{{ 'menu.project' | translate }}</a></li>
+                <li><a href="#" class="disabled">{{ 'menu.customer' | translate }}</a></li>
+                <li><a href="#" class="disabled">{{ 'menu.supplier' | translate }}</a></li>
+            </ul>
+        </li>
+    </ul>
+    
+</div>
